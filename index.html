@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jude Junior — Développeur Web</title>
+  <meta name="description" content="Portfolio de Jude Junior — Développeur Web & Concepteur de solutions numériques basé au Bénin.">
+  <meta name="theme-color" content="#05070A">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <!-- ═══════ HEADER ═══════ -->
+  <header class="site-header">
+    <nav class="nav shell">
+      <a href="#" class="brand">
+        <span class="brand-mark">JJ</span>
+        <span>
+          <strong>Jude Junior ZOGLOBOSSOU</strong>
+          <small>Développeur Web</small>
+        </span>
+      </a>
+      <div class="nav-panel" id="navPanel">
+        <a href="#about" class="active">À propos</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#process">Processus</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:center;">
+        <button class="icon-button theme-toggle" id="themeToggle" aria-label="Changer de thème">
+          <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-button nav-toggle" id="navToggle" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="hero" id="hero">
+      <div class="hero-accent"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-grid shell">
+        <div class="hero-content">
+          <p class="eyebrow">Disponible pour vos projets</p>
+          <h1>Jude Junior</h1>
+          <p class="hero-role">Développeur Web Full-Stack &<br>Ingénieur logiciel</p>
+          <p class="hero-slogan">Je transforme vos idées en solutions web performantes.</p>
+          <p class="hero-intro">Je suis <strong>Jude Junior ZOGLOBOSSOU</strong>, développeur web passionné par la création de sites web et d'applications modernes. Mon parcours est parti d'une conviction simple : <em><strong>la technologie doit resoudre de vrais problemes, pas seulement impressionner sur une demo.</strong></em> Je transforme les idées en expériences numériques performantes et durables.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="button primary">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Voir mes projets
+            </a>
+            <a href="#contact" class="button secondary">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Me contacter
+            </a>
+            <a class="button ghost" href="cv-jude-junior-zoglobossou.html" download="CV-Jude-Junior-ZOGLOBOSSOU.html">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 3v12"></path>
+                <path d="m7 10 5 5 5-5"></path>
+                <path d="M5 21h14"></path>
+              </svg>
+              Télécharger mon CV
+            </a>
+
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-panel">
+            <p>Disponible pour missions freelance, stages et collaborations web.</p>
+            <div class="contact-chips">
+              <a href="mailto:jude@example.com">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:0.4rem;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                jude@example.com
+              </a>
+              <a href="https://wa.me/2290158112910" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:0.4rem;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://github.com/junior6721" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:0.4rem;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ ABOUT ═══════ -->
+    <section class="section-band about-band" id="about">
+      <div class="shell split-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">À propos</p>
+          <h2>Passionné par le code et l'innovation</h2>
+          <div class="text-stack" style="margin-top:1.5rem;">
+            <p>Je suis un développeur web passionné par les technologies du web et le développement de solutions numériques innovantes. Mon objectif est de créer des plateformes performantes, intuitives et adaptées aux besoins des utilisateurs.</p>
+            <p>Grâce à ma formation technique et universitaire, je combine <strong>savoir-faire; pratique et solides connaissances informatiques</strong> pour concevoir des projets de qualité professionnelle.</p>
+          </div>
+          <div class="value-row">
+            <span><strong>Performance</strong></span><span><strong>Accessibilité</strong></span><span><strong>Fiabilité</strong></span><span><strong>Design moderne</strong></span>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.15s;">
+          <div class="card-grid" style="grid-template-columns:repeat(2,1fr);margin-top:0;">
+            <div class="service-card">
+              <div class="card-icon blue">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3>Frontend</h3>
+              <p>Interfaces React, HTML5, CSS3 modernes et responsives.</p>
+            </div>
+            <div class="service-card">
+              <div class="card-icon blue">
+                <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3>Backend</h3>
+              <p>APIs robustes avec Node.js, PHP et bases de données.</p>
+            </div>
+            <div class="service-card">
+              <div class="card-icon blue">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>DevOps</h3>
+              <p>Déploiement, automatisation et maintenance.</p>
+            </div>
+            <div class="service-card">
+              <div class="card-icon blue">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <h3>Solutions</h3>
+              <p>Systèmes d'animation et architectures techniques sur mesure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ SERVICES ═══════ -->
+    <section class="section-band services-band" id="services">
+      <div class="shell">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Services</p>
+          <h2>Ce que je peux construire pour vous</h2>
+          <h3><p style="color:var(--muted);margin-top:0.8rem;">De l'idée au produit en ligne, un accompagnement complet.</p></h3>
+        </div>
+        <div class="card-grid stagger" id="servicesGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ FEATURED PROJECT ═══════ -->
+    <section class="section-band projects-band" id="projects">
+      <div class="shell">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Projets</p>
+          <h2>Mes projets récents</h2>
+        <h3><p style="color:var(--muted);margin-top:0.8rem;">Une selection d'applications construites pour des besoins reels.</p>  </h3>                
+        </div>
+
+        <div id="featuredProject" class="reveal" style="margin-top:3rem;"></div>
+
+        <div class="filter-bar reveal" id="filterBar" style="margin-top:3rem;"></div>
+        <div class="projects-grid stagger" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══════ SKILLS ═══════ -->
+    <section class="section-band skills-band" id="skills">
+      <div class="shell">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">Compétences</p>
+          <h2>Ce que je maitrise au quotidien</h2>
+        <h3><p style="color:var(--muted);margin-top:0.8rem;">Des fondamentaux solides, affinés sur des projets réels en production.</p>  </h3>        
+        </div>
+        <div class="skills-layout stagger" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══════ PROCESS ═══════ -->
+    <section class="section-band experience-band" id="process">
+      <div class="shell split-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Expérience</p>
+          <h2>Expérience et réalisations</h2>
+          <div class="text-stack" style="margin-top:1.5rem;">
+            <p>Développeur freelance engagé auprès des porteurs de projets.</p>
+          </div>
+        </div>
+        <div class="experience-list stagger" id="processList"></div>
+      </div>
+    </section>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <section class="section-band contact-band" id="contact">
+      <div class="shell split-section">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Construisons quelque chose ensemble.</h2>
+          <p style="color:var(--muted);margin-top:1rem;">Ouvert aux missions freelance, aux collaborations à distance, et aux opportunités full-time. N'hésitez pas à me contacter pour discuter de votre projet. Je vous répondrai avec une approche claire et adaptée à votre projet.</p>
+          <div class="direct-contact">
+            <a href="mailto:jude@example.com">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              jude@example.com
+            </a>
+            <a href="https://wa.me/2290158112910" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://github.com/junior6721" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="contact-form reveal" style="transition-delay:0.15s;">
+          <form id="contactForm">
+            <div class="form-grid">
+              <div>
+                <label for="name"><strong>Nom</strong></label>
+                <em><input type="text" id="name" name="name" required placeholder="Votre nom"></em>
+              </div>
+              <div>
+                <label for="email"><strong>Email</strong></label>
+              <em><input type="email" id="email" name="email" required placeholder="Votre email"></em>
+              </div>
+              <div>
+                <label for="phone"><strong>Téléphone</strong></label>
+              <em><input type="tel" id="phone" name="phone" placeholder="Votre numéro"></em>
+              </div>
+              <div>
+                <label for="subject"><strong>Type de demande</strong></label>
+                <select id="subject" name="subject" required>
+                <em><option value="" disabled selected>Type de demande</option>
+                  <option value="site-vitrine">Site vitrine</option>
+                  <option value="application-web">Application web</option>
+                  <option value="e-commerce">E-commerce</option>
+                  <option value="maintenance">Maintenance</option>
+                  <option value="autre">Autre</option></em>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="message"><strong>Message</strong></label>
+            <em><textarea id="message" name="message" required placeholder="Décrivez votre problème..."></textarea></em>
+            </div>
+            <div class="honey-field" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="button-submit" id="submitBtn">
+            <strong> Soumettre</strong>
+            </button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="site-footer">
+    <div class="shell footer-layout">
+      <div>
+        <p><strong>Jude Junior</strong></p>
+        <p>Développeur Web — Bénin</p>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/junior6721" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://wa.me/2290158112910" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+      </div>
+      <p style="text-align:right;">© 2026 Jude Junior. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
