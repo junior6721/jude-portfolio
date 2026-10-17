@@ -1,5 +1,35 @@
 /* ═══════ NAVIGATION ═══════ */
 (function () {
+  // Preloader — minimum 5 seconds, counter 00 → 100
+  const preloader = document.getElementById('preloader');
+  const fill = document.getElementById('preloaderFill');
+  const percent = document.getElementById('preloaderPercent');
+  if (preloader) {
+    const DURATION = 5000;
+    const start = performance.now();
+    let pageLoaded = document.readyState === 'complete';
+
+    window.addEventListener('load', () => { pageLoaded = true; });
+
+    function tick(now) {
+      const elapsed = now - start;
+      const t = Math.min(elapsed / DURATION, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.min(Math.round(eased * 100), pageLoaded ? 100 : 96);
+      if (fill) fill.style.width = value + '%';
+      if (percent) percent.textContent = String(value).padStart(2, '0');
+      if (t < 1 || !pageLoaded) {
+        requestAnimationFrame(tick);
+      } else {
+        setTimeout(() => preloader.classList.add('done'), 350);
+      }
+    }
+    requestAnimationFrame(tick);
+
+    // Safety: never block more than 8s
+    setTimeout(() => preloader.classList.add('done'), 8000);
+  }
+
   const header = document.querySelector('.site-header');
   const navToggle = document.getElementById('navToggle');
   const navPanel = document.getElementById('navPanel');
@@ -16,9 +46,22 @@
   });
 
   // Hamburger
+  function setMenu(open) {
+    navPanel.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  }
   navToggle.addEventListener('click', () => {
-    navPanel.classList.toggle('is-open');
-    document.body.classList.toggle('nav-open');
+    setMenu(!navPanel.classList.contains('is-open'));
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navPanel.classList.contains('is-open')) {
+      setMenu(false);
+      navToggle.focus();
+    }
+  });
+  window.matchMedia('(min-width: 1001px)').addEventListener('change', (e) => {
+    if (e.matches) setMenu(false);
   });
 
   // Active section
@@ -37,9 +80,6 @@
 
   // Smooth scroll + close mobile menu
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navPanel.classList.remove('is-open');
-      document.body.classList.remove('nav-open');
-    });
+    link.addEventListener('click', () => setMenu(false));
   });
 })();

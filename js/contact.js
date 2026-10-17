@@ -7,7 +7,7 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const honey = form.querySelector('[name="website"]');
+    const honey = form.querySelector('[name="_gotcha"]');
     if (honey && honey.value) return;
 
     btn.disabled = true;
@@ -15,16 +15,15 @@
     status.textContent = '';
     status.style.color = '';
 
-    const data = new FormData(form);
-    data.append('access_key', CONFIG.web3formsKey);
-
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', body: data
+      const res = await fetch(CONFIG.formspree, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
       const json = await res.json();
-      if (json.success) {
-        status.textContent = 'Message envoyé avec succès !';
+      if (json.ok) {
+        status.textContent = 'Message envoyé avec succès ! Je vous réponds vite.';
         status.style.color = '#73d650';
         form.reset();
       } else {

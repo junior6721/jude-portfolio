@@ -1,15 +1,51 @@
 /* ═══════ MAIN — Render dynamic content ═══════ */
 (function () {
+  /* ── FOND : POLYÈDRES FILAIRES FLOTTANTS ── */
+  const polyVariants = [
+    '<polygon points="50,6 90,29 90,71 50,94 10,71 10,29"/><polygon points="50,30 74,44 74,68 50,82 26,68 26,44"/><path d="M50 6L50 30M90 29L74 44M90 71L74 68M50 94L50 82M10 71L26 68M10 29L26 44"/><path d="M50 30L74 68M74 44L50 82M74 44L26 68M26 44L50 82M26 44L74 68M50 30L26 68"/><path d="M10 29L90 71"/>',
+    '<polygon points="50,6 90,29 90,75 50,98 10,75 10,29"/><path d="M50 52L10 29M50 52L90 29M50 52L50 98"/><path d="M50 6L90 75M50 6L10 75"/>',
+    '<polygon points="50,6 92,80 8,80"/><polygon points="50,36 74,64 26,64"/><path d="M50 6L50 36M92 80L74 64M8 80L26 64"/><path d="M50 36L74 64M50 36L26 64M26 64L74 64"/><path d="M50 6L8 80M50 6L92 80M8 80L92 80"/>'
+  ];
+  const polyLayout = [
+    { x: '3%',  y: '6%',  s: 96,  o: 0.34, v: 0, t: 56, d: -4 },
+    { x: '14%', y: '34%', s: 64,  o: 0.22, v: 1, t: 44, d: -12 },
+    { x: '5%',  y: '62%', s: 124, o: 0.28, v: 2, t: 62, d: -20, hideSm: true },
+    { x: '17%', y: '84%', s: 56,  o: 0.18, v: 0, t: 38, d: -8, hideSm: true },
+    { x: '26%', y: '14%', s: 76,  o: 0.24, v: 2, t: 48, d: -16 },
+    { x: '34%', y: '52%', s: 104, o: 0.20, v: 1, t: 66, d: -24, hideSm: true },
+    { x: '44%', y: '26%', s: 58,  o: 0.16, v: 0, t: 40, d: -6 },
+    { x: '52%', y: '74%', s: 88,  o: 0.26, v: 2, t: 54, d: -18, hideSm: true },
+    { x: '61%', y: '10%', s: 68,  o: 0.22, v: 1, t: 46, d: -10 },
+    { x: '68%', y: '46%', s: 116, o: 0.30, v: 0, t: 60, d: -26 },
+    { x: '77%', y: '68%', s: 62,  o: 0.20, v: 2, t: 42, d: -14, hideSm: true },
+    { x: '84%', y: '22%', s: 98,  o: 0.26, v: 1, t: 58, d: -22 },
+    { x: '92%', y: '54%', s: 72,  o: 0.22, v: 0, t: 50, d: -9 },
+    { x: '88%', y: '86%', s: 110, o: 0.18, v: 2, t: 64, d: -30, hideSm: true },
+    { x: '46%', y: '5%',  s: 52,  o: 0.16, v: 1, t: 36, d: -3 },
+    { x: '23%', y: '70%', s: 46,  o: 0.14, v: 0, t: 34, d: -5, hideSm: true },
+    { x: '57%', y: '38%', s: 80,  o: 0.90, v: 0, t: 48, d: -11, glow: true },
+    { x: '29%', y: '88%', s: 64,  o: 0.85, v: 2, t: 52, d: -17, glow: true }
+  ];
+  const polyHost = document.getElementById('bgPolyhedra');
+  if (polyHost) {
+    polyHost.innerHTML = polyLayout.map(p => `
+      <span class="poly${p.glow ? ' glow' : ''}${p.hideSm ? ' hide-sm' : ''}"
+        style="--x:${p.x};--y:${p.y};--s:${p.s}px;--o:${p.o};--t:${p.t}s;--d:${p.d}s">
+        <svg viewBox="0 0 100 100" aria-hidden="true">${polyVariants[p.v]}</svg>
+      </span>
+    `).join('');
+  }
+
   /* ── SERVICES ── */
   const services = [
-    { title: "Création de sites vitrines", desc: "Présentez votre activité avec un site clair, rapide et optimisé pour convertir les visiteurs.", icon: "monitor", color: "red" },
-    { title: "Applications web", desc: "Des interfaces interactives, tableaux de bord et outils métier adaptés à vos workflows.", icon: "code", color: "blue" },
-    { title: "E-commerce", desc: "Boutiques en ligne avec catalogue, panier, paiement et gestion simplifiée des commandes.", icon: "cart", color: "green" },
-    { title: "Intégration API", desc: "Connexion de vos outils, paiements, formulaires, notifications et services externes.", icon: "link", color: "amber" },
-    { title: "Refonte de sites web", desc: "Modernisation de l'expérience, de la structure, des performances et de l'image de marque.", icon: "refresh", color: "red" },
-    { title: "Maintenance et optimisation", desc: "Corrections, mises à jour, sécurité, vitesse de chargement et suivi technique régulier.", icon: "settings", color: "blue" },
-    { title: "Déploiement et hébergement", desc: "Mise en ligne, configuration domaine, SSL, sauvegardes et choix d'hébergement durable.", icon: "upload", color: "green" },
-    { title: "SEO technique", desc: "Structure HTML, métadonnées, accessibilité, performance et indexation mieux préparée.", icon: "search", color: "amber" }
+    { title: "Création de sites vitrines", desc: "Un site clair, rapide et adapté à votre activité, pensé pour rassurer vos visiteurs et les transformer en clients.", icon: "monitor", color: "blue" },
+    { title: "Applications web", desc: "Tableaux de bord, portails clients et outils internes : je développe ce qui simplifie vraiment votre travail au quotidien.", icon: "code", color: "violet" },
+    { title: "Boutiques en ligne", desc: "Catalogue, panier, paiement mobile et suivi des commandes : votre boutique tourne sans accroc, sur mobile comme sur ordinateur.", icon: "cart", color: "emerald" },
+    { title: "Intégration d'API", desc: "Paiements, formulaires, notifications et services tiers : vos outils dialoguent enfin entre eux, de façon fiable.", icon: "link", color: "cyan" },
+    { title: "Refonte de site web", desc: "Votre site actuel devient plus rapide, plus clair et plus moderne, sans perdre vos contenus ni vos positions.", icon: "refresh", color: "amber" },
+    { title: "Maintenance et optimisation", desc: "Mises à jour, corrections, sécurité et vitesse : je veille sur votre site pour qu'il reste fiable jour après jour.", icon: "settings", color: "rose" },
+    { title: "Déploiement et hébergement", desc: "Mise en ligne, nom de domaine, HTTPS et sauvegardes : tout est configuré proprement, puis surveillé.", icon: "upload", color: "orange" },
+    { title: "Référencement (SEO) technique", desc: "Structure, métadonnées et performance optimisées pour que Google comprenne — et référence — votre site.", icon: "search", color: "teal" }
   ];
 
   const icons = {
@@ -26,8 +62,8 @@
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
     servicesGrid.innerHTML = services.map(s => `
-      <div class="service-card reveal">
-        <div class="card-icon ${s.color}">${icons[s.icon]}</div>
+      <div class="service-card reveal svc-${s.color}">
+        <div class="card-icon">${icons[s.icon]}</div>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
       </div>
@@ -38,6 +74,7 @@
   const projects = [
     {
       id: 1, title: "TechDepot Benin", type: "E-Commerce",
+      img: "images/projects/techdepot.svg",
       desc: "Marketplace technology pour l'achat et la vente de produits high-tech au Bénin.",
       features: ["Catalogue produits", "Paiement mobile", "Gestion commandes", "Interface responsive"],
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -46,6 +83,7 @@
     },
     {
       id: 2, title: "PhoneSecure", type: "Application Web",
+      img: "images/projects/phonesecure.svg",
       desc: "Application de sécurisation et gestion de téléphones mobiles avec suivi GPS.",
       features: ["Géolocalisation", "Alertes sécurité", "Historique mouvements", "Tableau de bord"],
       tech: ["Vue.js", "PHP", "MySQL", "API GPS"],
@@ -54,6 +92,7 @@
     },
     {
       id: 3, title: "Inventix Cloud", type: "SaaS Platform",
+      img: "images/projects/inventix.svg",
       desc: "Plateforme cloud de gestion d'inventaire pour entreprises.",
       features: ["Multi-utilisateurs", "Rapports analytics", "Export données", "API REST"],
       tech: ["React", "Django", "PostgreSQL", "Docker"],
@@ -62,6 +101,7 @@
     },
     {
       id: 4, title: "Stock Management", type: "Application Mobile",
+      img: "images/projects/stock.svg",
       desc: "Application de gestion de stock temps réel pour commerçants.",
       features: ["QR Code scanning", "Alertes rupture", "Multi-entrepôts", "Offline first"],
       tech: ["React Native", "Firebase", "Node.js"],
@@ -70,6 +110,7 @@
     },
     {
       id: 5, title: "ArchivEcole", type: "Système d'information",
+      img: "images/projects/archivcole.svg",
       desc: "Système de gestion des archives scolaires pour établissements éducatifs.",
       features: ["Base élèves", "Bulletins numériques", "Recherche avancée", "Sauvegarde cloud"],
       tech: ["PHP", "MySQL", "Bootstrap", "jQuery"],
@@ -78,6 +119,7 @@
     },
     {
       id: 6, title: "Marketplace Locale", type: "E-Commerce",
+      img: "images/projects/marketplace.svg",
       desc: "Place de marché en ligne connectant vendeurs locaux et acheteurs au Bénin.",
       features: ["Profil vendeur", "Chat intégré", "Paiement sécurisé", "Livraison tracking"],
       tech: ["Next.js", "Prisma", "Stripe", "Tailwind"],
@@ -86,6 +128,7 @@
     },
     {
       id: 7, title: "BizAssist", type: "Application Web",
+      img: "images/projects/bizassist.svg",
       desc: "Assistant numérique pour entrepreneurs avec outils de gestion intégrés.",
       features: ["Comptabilité simplifiée", "Gestion clients", "Rapports financiers", "Rappels automatiques"],
       tech: ["React", "Python", "FastAPI", "Redis"],
@@ -100,9 +143,7 @@
     featuredEl.innerHTML = `
       <div class="project-card featured-project">
         <div class="project-shot">
-          <div class="project-image-placeholder">
-            <span class="placeholder-text">${featured.title}</span>
-          </div>
+          <img src="${featured.img}" alt="Aperçu de ${featured.title}" loading="lazy">
         </div>
         <div class="project-content">
           <p class="project-type">${featured.type}</p>
@@ -147,9 +188,7 @@
     grid.innerHTML = filtered.map(p => `
       <div class="project-card reveal" data-category="${p.category}">
         <div class="project-shot">
-          <div class="project-image-placeholder" style="min-height:180px;">
-            <span class="placeholder-text" style="font-size:1.1rem;">${p.title}</span>
-          </div>
+          <img src="${p.img}" alt="Aperçu de ${p.title}" loading="lazy">
         </div>
         <div class="project-content">
           <p class="project-type">${p.type}</p>
@@ -179,16 +218,16 @@
 
   /* ── SKILLS ── */
   const skills = [
-    { title: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"] },
-    { title: "Backend", items: ["Node.js", "Express.js", "PHP", "Laravel"] },
-    { title: "Bases de données", items: ["MySQL", "PostgreSQL", "MongoDB"] },
-    { title: "Outils", items: ["Git", "GitHub", "VS Code", "Figma", "FileZilla"] }
+    { title: "Frontend", color: "blue", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"] },
+    { title: "Backend", color: "violet", items: ["Node.js", "Express.js", "PHP", "Laravel"] },
+    { title: "Bases de données", color: "emerald", items: ["MySQL", "PostgreSQL", "MongoDB"] },
+    { title: "Outils", color: "amber", items: ["Git", "GitHub", "VS Code", "Figma", "FileZilla"] }
   ];
 
   const skillsGrid = document.getElementById('skillsGrid');
   if (skillsGrid) {
     skillsGrid.innerHTML = skills.map(s => `
-      <div class="skill-column reveal">
+      <div class="skill-column reveal svc-${s.color}">
         <h3>${s.title}</h3>
         <ul class="skill-list">
           ${s.items.map(i => `<li>${i}</li>`).join('')}
@@ -199,10 +238,11 @@
 
   /* ── PROCESS ── */
   const process = [
-    { step: "01", title: "Sites web réalisés", desc: "Conception d'interfaces professionnelles, responsives et adaptées à l'identité de chaque client." },
-    { step: "02", title: "Applications développées", desc: "Création d'outils web pour simplifier la gestion, centraliser les informations et gagner du temps." },
-    { step: "03", title: "Résolution de problèmes techniques", desc: "Correction de bugs, amélioration des performances, optimisation mobile et remise en état de sites." },
-    { step: "04", title: "Accompagnement des clients", desc: "Écoute, conseils, documentation et suivi après livraison pour garder un projet fiable dans le temps." }
+    { step: "01", title: "Découverte et cadrage", desc: "On échange sur vos objectifs, votre public et vos contraintes. Je clarifie le périmètre, les priorités et le calendrier avant de commencer." },
+    { step: "02", title: "Conception et maquettes", desc: "Wireframes, design des écrans et validation de la direction visuelle — aucune ligne de code n'est écrite avant votre accord." },
+    { step: "03", title: "Développement", desc: "Intégration de l'interface, API et base de données. Vous suivez l'avancement sur un environnement de préproduction, à chaque étape." },
+    { step: "04", title: "Tests et mise en ligne", desc: "Recette sur mobile et ordinateur, optimisation des performances, déploiement, nom de domaine et HTTPS configurés proprement." },
+    { step: "05", title: "Suivi et maintenance", desc: "Corrections, évolutions et accompagnement après livraison pour garder un projet fiable et à jour dans la durée." }
   ];
 
   const processList = document.getElementById('processList');

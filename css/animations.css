@@ -10,15 +10,63 @@
 .stagger > *:nth-child(5) { transition-delay: 0.25s; }
 .stagger > *:nth-child(6) { transition-delay: 0.30s; }
 
-/* Hero accent pulse */
-@keyframes softPulse {
-  0%, 100% { opacity: 0.18; transform: scale(1); }
-  50% { opacity: 0.28; transform: scale(1.04); }
+/* ── FOND PROFESSIONNEL DU SITE ── */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(75vmax 48vmax at 84% -14%, color-mix(in srgb, var(--blue) 18%, transparent), transparent 66%),
+    radial-gradient(62vmax 46vmax at 4% 114%, color-mix(in srgb, var(--blue) 10%, transparent), transparent 68%);
+  animation: glowBreathe 18s ease-in-out infinite alternate;
 }
-.hero-accent { animation: softPulse 7s ease-in-out infinite; }
+@keyframes glowBreathe {
+  from { opacity: 0.7; transform: scale(1); }
+  to   { opacity: 1; transform: scale(1.05); }
+}
+
+/* ── HALOS DU HERO ── */
+.hero-accent { animation: orbDrift 16s ease-in-out infinite alternate; }
+.hero-accent::after {
+  content: ""; position: absolute; left: -34%; bottom: -38%;
+  width: 72%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, #7C3AED 32%, transparent) 0%, transparent 68%);
+  animation: orbDrift 12s ease-in-out infinite alternate-reverse;
+}
+@keyframes orbDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-28px, 22px, 0) scale(1.07); }
+}
+
+/* ── DÉRIVE DES POLYÈDRES DU FOND ── */
+@keyframes polyFloat {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25%  { transform: translate3d(16px, -28px, 0) rotate(90deg); }
+  50%  { transform: translate3d(-4px, -50px, 0) rotate(180deg); }
+  75%  { transform: translate3d(-22px, -22px, 0) rotate(270deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-polyhedra .poly { animation: none; }
+  .hero-accent, .hero-accent::after { animation: none; }
+}
 
 /* Screenshot settle */
 @keyframes screenshotSettle {
   from { opacity: 0; transform: translateY(16px) scale(0.985); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Vibration au survol d'une carte */
+@keyframes cardShake {
+  0%, 100% { transform: translateY(-5px) translateX(0) rotate(0deg); }
+  15% { transform: translateY(-5px) translateX(-4px) rotate(-0.6deg); }
+  30% { transform: translateY(-5px) translateX(4px) rotate(0.6deg); }
+  45% { transform: translateY(-5px) translateX(-3px) rotate(-0.4deg); }
+  60% { transform: translateY(-5px) translateX(3px) rotate(0.4deg); }
+  75% { transform: translateY(-5px) translateX(-2px) rotate(-0.2deg); }
+  90% { transform: translateY(-5px) translateX(2px) rotate(0.2deg); }
+}
+
+/* La vibration ne s'applique qu'aux cartes Services */
+.service-card:hover {
+  animation: cardShake 0.45s ease-in-out;
 }
